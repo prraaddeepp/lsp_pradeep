@@ -29,25 +29,24 @@ public class IntegerSetTest {
 	@DisplayName("Test case for Remove")
 	public void TestRemove() throws org.howard.edu.lsp.assignment4.IntegerSetException, IntegerSetException {
 		IntegerSet setA= new IntegerSet();
-		int[] numbers = {10, 20, 30, 40, 50};
+		int[] numbers = {10, 20, 50};
 		for (int i = 0; i < numbers.length; i ++) {
 			setA.add(numbers[i]);
 		}
 		setA.remove(10);
 		setA.remove(50);
-		assertEquals("[20, 30, 40]",setA.toString());
+		assertEquals("[20]",setA.toString());
 		assertNotEquals("[]", setA.toString());
 		assertNotEquals("[30, 20, 40]", setA.toString());
 
 		IntegerSet setB = new IntegerSet();
-		int[] numbers_1 = {90, 60, 80, 12, 34};
+		int[] numbers_1 = {9, 5, 80, 12, 34};
 		for (int i = 0; i < numbers_1.length; i ++) {
 			setB.add(numbers_1[i]);
 		}
-		
-		setB.remove(90);
-		setB.remove(50);
-		assertEquals(false, setB.contains(90));
+		setB.remove(9);
+		setB.remove(5);
+		assertEquals(false, setB.contains(9));
 		assertEquals(true, setB.contains(60));
 		assertNotEquals("[]", setB.toString());
 	}
@@ -71,13 +70,13 @@ public class IntegerSetTest {
 	@DisplayName("Test Contains")
 	public void TestContains() {
 		IntegerSet setA= new IntegerSet();
-		int[] numbers = {1,2,3,4,5};
+		int[] numbers = {10, 20, 30, 40, 50};
 		for (int i = 0; i < numbers.length; i ++) {
 			setA.add(numbers[i]);
 		}
-		assertEquals(true,setA.contains(4));
+		assertEquals(true,setA.contains(40));
 		assertEquals(false,setA.contains(100));
-		assertEquals(true,setA.contains(2));
+		assertEquals(true,setA.contains(20));
 		assertNotEquals(true,setA.contains(-10));
 		assertNotEquals(true,setA.contains(509));
 	}
@@ -94,12 +93,12 @@ public class IntegerSetTest {
 	@DisplayName("Test toString")
 	public void testToString() {
 		IntegerSet setA= new IntegerSet();
-		int[] numbers = {1,2,3,4,5};
+		int[] numbers = {10,20,30};
 		for (int i = 0; i < numbers.length; i ++) {
 			setA.add(numbers[i]);
 			}
 	
-	assertEquals("[1, 2, 3, 4, 5]",setA.toString());
+	assertEquals("[10, 20, 30]",setA.toString());
 	assertNotEquals("12345",setA.toString());
 	assertNotEquals("[1,9,111]",setA.toString());
 	
@@ -110,7 +109,7 @@ public class IntegerSetTest {
 	@DisplayName("Test Union")
 	public void testUnion() {
 		IntegerSet setA= new IntegerSet();
-		int[] numbers = {1, 2, 3, 4, 5};
+		int[] numbers = {10, 20, 30};
 		for (int i = 0; i < numbers.length; i ++) {
 			setA.add(numbers[i]);
 		}
@@ -121,7 +120,7 @@ public class IntegerSetTest {
 		}
 		
 		setA.union(setB);
-		assertEquals("[1, 2, 3, 4, 5, 7, 9]",setA.toString());
+		assertEquals("[1, 3, 5, 7, 9, 10, 20, 30 ]",setA.toString());
 		assertNotEquals("[1, 3, 5]",setA.toString());
 		}
 	

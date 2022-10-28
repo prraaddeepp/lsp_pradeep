@@ -11,7 +11,9 @@ public class Person {
 		this.socialSecurityNumber=socialSecurityNumber;	
 	};
 	public String toString() {
-		return "The name is " + this.name+"\n"+ "The age is "+ this.age+"\n"+ "The SSN is " + this.socialSecurityNumber;
+		return "The name is " + this.name+
+				" "+ "The age is "+ this.age+
+				" "+ "The SSN is " + this.socialSecurityNumber;
 		
 	};
 	
